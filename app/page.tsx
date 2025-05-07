@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -5,8 +7,13 @@ import { DollarSign, Users, Utensils, ShoppingBag } from "lucide-react"
 import Link from "next/link"
 import RecentOrdersTable from "@/components/dashboard/recent-orders-table"
 import SalesOverview from "@/components/dashboard/sales-overview"
-import TopSellingItems from "@/components/dashboard/top-selling-items"
+import dynamic from 'next/dynamic'
 import InventoryStatus from "@/components/dashboard/inventory-status"
+
+const TopSellingItems = dynamic(
+  () => import('@/components/dashboard/top-selling-items'),
+  { ssr: false }
+)
 
 export default function Dashboard() {
   return (
