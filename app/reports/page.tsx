@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -6,11 +8,11 @@ import { Download, Calendar, Filter, BarChart3, LineChart } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
   Bar,
-  BarChart as RechartsBarChart,
+  BarChart,
   Line,
   LineChart as RechartsLineChart,
   Pie,
-  PieChart as RechartsPieChart,
+  PieChart,
   ResponsiveContainer,
   XAxis,
   YAxis,
@@ -228,7 +230,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={350}>
-                  <RechartsBarChart data={salesData}>
+                  <BarChart data={salesData}>
                     <XAxis dataKey="name" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
                     <YAxis
                       stroke="#888888"
@@ -239,7 +241,7 @@ export default function ReportsPage() {
                     />
                     <Tooltip />
                     <Bar dataKey="sales" fill="#8884d8" radius={[4, 4, 0, 0]} />
-                  </RechartsBarChart>
+                  </BarChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -251,7 +253,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent className="flex justify-center">
                 <ResponsiveContainer width="100%" height={300}>
-                  <RechartsPieChart>
+                  <PieChart>
                     <Pie
                       data={categoryData}
                       cx="50%"
@@ -268,7 +270,7 @@ export default function ReportsPage() {
                     </Pie>
                     <Tooltip />
                     <Legend />
-                  </RechartsPieChart>
+                  </PieChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -347,7 +349,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent className="flex justify-center">
                 <ResponsiveContainer width="100%" height={300}>
-                  <RechartsPieChart>
+                  <PieChart>
                     <Pie
                       data={categoryData}
                       cx="50%"
@@ -364,7 +366,7 @@ export default function ReportsPage() {
                     </Pie>
                     <Tooltip />
                     <Legend />
-                  </RechartsPieChart>
+                  </PieChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -376,7 +378,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
-                  <RechartsBarChart
+                  <BarChart
                     data={topSellingItems.slice(0, 5).map((item) => ({
                       name: item.name,
                       revenue: Number.parseFloat(item.revenue.replace("$", "")),
@@ -388,7 +390,7 @@ export default function ReportsPage() {
                     <YAxis type="category" dataKey="name" width={100} />
                     <Tooltip />
                     <Bar dataKey="revenue" fill="#8884d8" />
-                  </RechartsBarChart>
+                  </BarChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -404,7 +406,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent className="flex justify-center">
                 <ResponsiveContainer width="100%" height={300}>
-                  <RechartsPieChart>
+                  <PieChart>
                     <Pie
                       data={orderTypeData}
                       cx="50%"
@@ -421,7 +423,7 @@ export default function ReportsPage() {
                     </Pie>
                     <Tooltip />
                     <Legend />
-                  </RechartsPieChart>
+                  </PieChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
@@ -433,7 +435,7 @@ export default function ReportsPage() {
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
-                  <RechartsBarChart
+                  <BarChart
                     data={[
                       { name: "Dine-in", value: 15.75 },
                       { name: "Takeout", value: 12.3 },
@@ -444,7 +446,7 @@ export default function ReportsPage() {
                     <YAxis tickFormatter={(value) => `$${value}`} />
                     <Tooltip />
                     <Bar dataKey="value" fill="#8884d8" />
-                  </RechartsBarChart>
+                  </BarChart>
                 </ResponsiveContainer>
               </CardContent>
             </Card>
