@@ -32,8 +32,8 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background">
-      <div className="container flex h-16 items-center justify-between py-4">
+    <header className="fixed top-0 left-0 right-0 z-40 border-b bg-slate-950 text-white">
+      <div className="container flex h-14 items-center justify-between py-4">
         <div className="flex items-center gap-2 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -56,7 +56,11 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon" className="relative">
+              <Button
+                variant="outline"
+                size="icon"
+                className="relative border-slate-700 bg-slate-800 text-white hover:bg-slate-700 hover:text-white"
+              >
                 <Bell className="h-5 w-5" />
                 {notifications > 0 && (
                   <Badge className="absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center">
@@ -77,7 +81,11 @@ export default function Header() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                className="border-slate-700 bg-slate-800 text-white hover:bg-slate-700 hover:text-white"
+              >
                 <User className="h-5 w-5" />
                 <span className="sr-only">User menu</span>
               </Button>

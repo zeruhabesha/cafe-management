@@ -22,12 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <div className="flex flex-1">
+            <div className="flex flex-1 pt-14">
               <Sidebar />
-              <main className="flex-1 overflow-y-auto">{children}</main>
+              <main className="ml-[70px] md:ml-64 flex-1 overflow-y-auto bg-background transition-all duration-300">
+                {children}
+              </main>
             </div>
           </div>
         </ThemeProvider>
